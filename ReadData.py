@@ -14,7 +14,7 @@ class ReadData:
         for i in range(len(indep)):
             indep[i] = int(indep[i])
         self.independent = my_data[:,indep]
-
+    #Finds the difference between two columns
     def diff(self, col_1, col_2):
         diffList = np.power(self.independent[:, col_1]-self.independent[:,col_2],2)
         return diffList

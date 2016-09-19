@@ -22,6 +22,7 @@ class NiceLinReg:
     def train(self, learning_rate, ind, dep):
         val = self.linreg(learning_rate, ind, dep)
         old_val = 0
+        #Can change this variable to decide how much convergence is wanted
         while np.absolute(val-old_val) > 1:
             old_val = val
             val = self.linreg(learning_rate, ind, dep)
