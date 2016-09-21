@@ -11,6 +11,7 @@ class NiceLinReg:
         self.bias  = np.random.rand(1)
 
     def linreg(self, learning_rate, ind, dep):
+        '''Recalculates weight and bias values depending on error'''
         init_cost = np.sum(np.power((ind*self.weight+self.bias) - dep, 2))
         error = (ind*self.weight+self.bias) - dep
         self.weight = self.weight - np.sum(learning_rate * error * dep/ len(ind))
@@ -20,6 +21,7 @@ class NiceLinReg:
         return end_cost
 
     def train(self, learning_rate, ind, dep):
+        '''Runs training until cost values converge to within some interval'''
         val = self.linreg(learning_rate, ind, dep)
         old_val = 0
         #Can change this variable to decide how much convergence is wanted
@@ -29,6 +31,7 @@ class NiceLinReg:
         self.getTheta()
 
     def getTheta(self):
+        '''Prints out Value for current weight and bias variables'''
         print "Weight     Bias"
         print self.weight, self.bias
 
